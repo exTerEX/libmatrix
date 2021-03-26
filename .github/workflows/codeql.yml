@@ -15,6 +15,8 @@ on:
       - "**/.git*"
       - "**/.editorconfig"
       - "**/.clang-*"
+      - "**/.vscode/*.json"
+      - "**/.devcontainer/*.json"
 
   schedule:
     - cron: 0 0 * * 0
