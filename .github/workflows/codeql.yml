@@ -2,16 +2,22 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
-  pull_request:
-    branches: [main, stable]
     paths-ignore:
       - "**/*.md"
       - "**/*.txt"
+      - ".github/*.yml"
+      - ".github/ISSUE_TEMPLATE/*.yml"
+      - "**/doc/**"
+      - "**/LICENSE"
+      - "**/.git*"
+      - "**/.editorconfig"
+      - "**/.clang-*"
 
   schedule:
-    - cron: "0 22 14 * *"
+    - cron: 0 0 * * 0
 
 jobs:
   analyze:
@@ -21,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["cpp"] # Planning "go", "python"]
+        language: [cpp]
 
     steps:
       - name: Checkout repository
