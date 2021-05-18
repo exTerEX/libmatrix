@@ -1,0 +1,18 @@
+{
+	"name": "",
+	"image": "exterex/cpp-dev",
+	"updateRemoteUserUID": false,
+	"runArgs": [
+		"-v",
+		"/etc/localtime:/etc/localtime:ro"
+	],
+	"extensions": [
+		"ms-vscode.cpptools",
+		"twxs.cmake",
+		"ms-vscode.cmake-tools",
+		"docsmsft.docs-markdown",
+		"cschlosser.doxdocgen",
+		"cheshirekow.cmake-format"
+	],
+	"postCreateCommand": "pip install -r requirements.txt"
+}
