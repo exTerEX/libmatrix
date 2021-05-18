@@ -1,43 +1,42 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-labels: bug
+about: Report errors or unexpected behavior
+title:
+labels:
+  - bug
+assignees:
 ---
 
-<!--- Provide a general summary of the issue in the Title above -->
+<!--
+Before you file an issue read the:
+- Code of Conduct: https://github.com/exTerEX/libmatrix/blob/main/.github/CODE_OF_CONDUCT.md
+- Contributing guide: https://github.com/exTerEX/libmatrix/blob/main/.github/CONTRIBUTING.md
 
-## Expected Behavior
+Check to make sure someone hasn't already opened a similar issue: https://github.com/exTerEX/libmatrix/labels/bug
+-->
 
-<!--- Tell us what should happen -->
+### Brief description of the issue
 
-## Current Behavior
+<!-- Please use this section to describe your issue. -->
 
-<!--- Tell us what happens instead of the expected behavior -->
+### Steps to reproduce
 
-## Possible Solution
+<!-- A description of how to trigger this bug. -->
 
-<!--- Not obligatory, but suggest a fix/reason for the bug, -->
+### Expected behavior
 
-## Steps to Reproduce
+<!-- A description of what you're expecting, possibly containing screenshots or reference material. -->
 
-<!--- Provide a link to a live example, or an unambiguous set of steps to -->
-<!--- reproduce this bug. Include code to reproduce, if relevant -->
+### Actual behavior
 
-1. Steps
-2. to
-3. reproduce
+<!-- What's actually happening? -->
 
-## Context (Environment)
+### Environment
 
-<!--- How has this issue affected you? What are you trying to accomplish? -->
-<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+<!-- Any information of the operating system, frameworks, compiler, etc. -->
 
-<!--- Provide a general summary of the issue in the Title above -->
+### Misc.
 
-## Detailed Description
+<!-- Anything else? -->
 
-<!--- Provide a detailed description of the change or addition you are proposing -->
-
-## Possible Implementation
-
-<!--- Not obligatory, but suggest an idea for impleme -->
+- [ ] Do you have a code proposal? If so create a pull request alongside the issue.

@@ -1,21 +1,30 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-labels: enhancement
+name: "Feature Request/Idea"
+about: Suggest a new feature or improvement
+title: ""
+labels:
+  - enhancement
+assignees: ""
 ---
 
-<!--- Provide a general summary of your changes in the Title above -->
+<!--
+Before you file an issue read the:
+- Code of Conduct: https://github.com/exTerEX/libmatrix/blob/main/.github/CODE_OF_CONDUCT.md
+- Contributing guide: https://github.com/exTerEX/libmatrix/blob/main/.github/CONTRIBUTING.md
 
-## Description
+Check to make sure someone hasn't already opened a similar issue: https://github.com/exTerEX/libmatrix/labels/enhancement
+-->
 
-<!--- Describe your changes in detail -->
+# Description of the new feature
 
-## Related Issue
+<!-- Describe what, why and how about the feature. -->
 
-<!--- If suggesting a new feature or change, please discuss it in an issue first -->
-<!--- Please link to the issue here: -->
+# Proposed technical implementation details (optional)
 
-## Motivation and Context
+<!-- A clear and concise description of what you want to happen. -->
 
-<!--- Why is this change required? What problem does it solve? -->
-<!--- If it fixes an open issue, please link to the issue here. -->
+### Misc.
+
+<!-- Anything else? -->
+
+- [ ] Do you have a code proposal? If so create a pull request alongside the issue.
