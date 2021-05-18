@@ -3,12 +3,28 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
-    target-branch: "main"
+      interval: "monthly"
+      day: "tuesday"
+      time: "06:00"
+      timezone: "Europe/Oslo"
+    labels:
+      - "dependencies"
+      - "actions"
     open-pull-requests-limit: 5
+    reviewers:
+      - "exTerEX"
+    target-branch: "main"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
-    target-branch: "main"
+      day: "tuesday"
+      time: "06:00"
+      timezone: "Europe/Oslo"
+    labels:
+      - "dependencies"
+      - "actions"
     open-pull-requests-limit: 5
+    reviewers:
+      - "exTerEX"
+    target-branch: "main"
