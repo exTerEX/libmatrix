@@ -65,16 +65,16 @@ template <typename T> matrix<T>::matrix(std::vector<std::vector<T>> __m) {
 }
 
 template <typename T> matrix<T> &matrix<T>::operator=(matrix<T> __m) {
-  std::swap(this->col_size, __m.col_size); // Change to copy?
-  std::swap(this->row_size, __m.row_size);
+  std::copy(this->col_size, __m.col_size);
+  std::copy(this->row_size, __m.row_size);
 
-  std::swap(this->data, __m.data);
+  std::copy(this->data, __m.data);
 
   return *this;
 }
 
-template <typename T> T matrix<T>::operator()(unsigned __x, unsigned __y) {
-  return this->data[__x][__y];
+template <typename T> std::vector<T> &matrix<T>::operator[](size_t __x) {
+  return &this->data[__x];
 }
 
 template <typename T> matrix<T> matrix<T>::operator+(const matrix<T> &__m) {
@@ -116,10 +116,6 @@ template <typename T> matrix<T> &matrix<T>::operator-=(const matrix &__m) {
 }
 
 template <typename T> matrix<T> &matrix<T>::operator*(const matrix<T> &__m) {
-  return *this *= __m;
-}
-
-template <typename T> matrix<T> &matrix<T>::operator*=(const matrix<T> &__m) {
   if (this->col_size == __m.row_size) {
     matrix<T> n = *this;
 
@@ -129,7 +125,6 @@ template <typename T> matrix<T> &matrix<T>::operator*=(const matrix<T> &__m) {
 
     this->fill_matrix(0);
 
-    // Matrix product(row_size, n.col_size);
     for (size_t i = 0; i < this->row_size; i++) {
       for (size_t j = 0; j < this->col_size; j++) {
         T temp = 0.0;
@@ -143,6 +138,10 @@ template <typename T> matrix<T> &matrix<T>::operator*=(const matrix<T> &__m) {
     throw std::runtime_error("These matricies cannot be multiplied.");
   }
   return *this;
+}
+
+template <typename T> matrix<T> &matrix<T>::operator*=(const matrix<T> &__m) {
+  return *this = *this * __m;
 }
 
 template <typename T> matrix<T> matrix<T>::operator*(const T __n) {
@@ -175,24 +174,25 @@ template <typename T> matrix<T> matrix<T>::transpose() {
   return product;
 }
 
-template <typename T> matrix<T> matrix<T>::inverse(const matrix<T> &__m) {
+template <typename T> matrix<T> matrix<T>::inverse() {
   matrix<T> product(this->row_size, this->col_size);
 
-  if (this->col_size == __m.rows) {
-    for (size_t i = 0; i < this->row_size; i++) {
-      for (size_t j = 0; j < this->col_size; j++) {
-        product(i, j) = 0; // TODO: Some math shit that need to be implemented...
-      }
+  for (size_t i = 0; i < this->row_size; i++) {
+    for (size_t j = 0; j < this->col_size; j++) {
+      product(i, j) = 0; // TODO: Some math shit that need to be implemented...
     }
-  } else {
-    throw "Cannot find inverse of this Matrix.";
   }
+
   return product;
 }
 
-template <typename T> T matrix<T>::determinant(const matrix<T> &__m) {}
+template <typename T> T matrix<T>::determinant() {
+  // TODO: Some math shit that need to be implemented...
+}
 
-template <typename T> unsigned matrix<T>::shape() const { return 0; }
+template <typename T> std::array<size_t, 2> matrix<T>::shape() const {
+  return std::array<size_t, 2>{{this->row_size, this->col_size}};
+}
 
 template <typename T> void matrix<T>::print() const {
   std::cout << "Matrix: " << std::endl;

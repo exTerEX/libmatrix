@@ -25,6 +25,7 @@
 #ifndef MATRIX_MATRIX_HPP
 #define MATRIX_MATRIX_HPP
 
+#include <array>
 #include <exception>
 #include <iostream>
 #include <utility>
@@ -57,10 +58,9 @@ public:
    * @brief Matrix subscript operator to access cell values.
    *
    * @param __x Row to access.
-   * @param __y Col to access.
    * @return T Selected cell value.
    */
-  T operator()(unsigned __x, unsigned __y);
+  std::vector<T> &operator[](size_t __x);
 
   /**
    * @brief Assignment addition between two equal shaped matrices.
@@ -128,13 +128,29 @@ public:
 
   matrix operator^(size_t n);
 
+  /**
+   * @brief Return transpose of matrix.
+   * @return matrix
+   */
   matrix transpose();
 
-  matrix inverse(const matrix &__m);
+  /**
+   * @brief Return inverse of matrix.
+   * @return matrix
+   */
+  matrix inverse();
 
-  T determinant(const matrix &__m);
+  /**
+   * @brief Return determinant of matrix.
+   * @return T
+   */
+  T determinant();
 
-  unsigned shape() const;
+  /**
+   * @brief Return the shape of matrix.
+   * @return std::array<size_t, 2>
+   */
+  std::array<size_t, 2> shape() const;
 
   void print() const;
 
@@ -142,6 +158,10 @@ public:
 
   bool operator!=(const matrix &__m);
 
+  /**
+   * @brief Fill the entire array with a single value.
+   * @param __k
+   */
   void fill(T __k);
 };
 
