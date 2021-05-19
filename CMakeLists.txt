@@ -26,5 +26,9 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 endif()
 
 add_subdirectory(src)
-#add_subdirectory(examples)
-add_subdirectory(tests)
+add_subdirectory(examples)
+
+if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+  include(cmake/create_test.cmake)
+  add_subdirectory(tests)
+endif()
