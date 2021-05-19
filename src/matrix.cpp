@@ -47,7 +47,7 @@ template <typename T> matrix<T>::matrix(const matrix &__m) {
   this->data = __m.data;
 }
 
-template <typename T> matrix<T>::matrix(std::vector<T> __m) {
+template <typename T> matrix<T>::matrix(const std::vector<T> &__m) {
   this->row_size = __m.size();
   this->col_size = 1;
 
@@ -57,14 +57,7 @@ template <typename T> matrix<T>::matrix(std::vector<T> __m) {
   }
 }
 
-template <typename T> matrix<T>::matrix(std::vector<std::vector<T>> __m) {
-  this->row_size = __m.row_size;
-  this->col_size = __m.col_size;
-
-  this->data = __m.data;
-}
-
-template <typename T> matrix<T> &matrix<T>::operator=(matrix<T> __m) {
+template <typename T> matrix<T> &matrix<T>::operator=(const matrix<T> &__m) {
   std::swap(this->col_size, __m.col_size); // Change to copy?
   std::swap(this->row_size, __m.row_size);
 
@@ -72,6 +65,17 @@ template <typename T> matrix<T> &matrix<T>::operator=(matrix<T> __m) {
 
   return *this;
 }
+
+template <typename T> matrix<T>::matrix(const std::vector<std::vector<T>> &__m) {
+  this->row_size = __m.row_size;
+  this->col_size = __m.col_size;
+
+  this->data = __m.data;
+}
+
+matrix(const T **__m) {}
+
+matrix operator=(const T **__m) {}
 
 template <typename T> T matrix<T>::operator()(unsigned __x, unsigned __y) {
   return this->data[__x][__y];

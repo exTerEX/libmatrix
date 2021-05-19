@@ -39,6 +39,8 @@ private:
 
 protected:
 public:
+  matrix() = default;
+
   matrix(size_t __x, T __k = 0);
 
   matrix(size_t __x, size_t __y, T __k = 0);
@@ -47,11 +49,17 @@ public:
 
   matrix(const matrix &__m);
 
-  matrix(std::vector<T> __m);
+  matrix(const std::vector<T> &__m);
 
-  matrix(std::vector<std::vector<T>> __m);
+  matrix(const std::vector<std::vector<T>> &__m);
 
-  matrix &operator=(matrix __m);
+  matrix(const T **__m);
+
+  matrix operator=(const matrix &__m);
+
+  matrix operator=(const std::vector<std::vector<T>> &__m);
+
+  matrix operator=(const T **__m);
 
   /**
    * @brief Matrix subscript operator to access cell values.
